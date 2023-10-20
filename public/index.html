@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Learning WebRTC</title>
+<style>
+body {
+background-color: #3D6DF2;
+margin-top: 15px;
+font-family: sans-serif;
+color: white;
+}
+.thumb{
+height: 75px;
+border: 1px solid #000;
+margin: 10px 5px 0 0;
+}
+
+video {
+background: black;
+border: 1px solid gray;
+}
+.page {
+position: relative;
+display: block;
+margin: 0 auto;
+width: 500px;
+}
+#video-container {
+display: flex;
+flex: 1;
+flex-direction: row;
+justify-content: space-between;
+margin: 5vw;
+}
+#login-page {
+position: relative;
+display: block;
+margin: 0 auto;
+width: 500px;
+}
+#call-page {
+width: 100%;
+height: 500px;
+position: relative;
+display: block;
+margin: 0 auto;
+}
+#share-page {
+position: relative;
+display: block;
+margin: 0 auto;
+width: 500px;
+}
+#main-video {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+#videos {
+display: flex;
+gap: 1rem;
+}
+#others {
+width: 20vw;
+height: 15vh;
+}
+#scroll-videos {
+display: inline-block;
+width: auto;
+height: 100%;
+overflow-x: none;
+overflow-y: auto;
+}
+#yours-container {
+position: relative;
+}
+#yours {
+width: 150px;
+height: 150px;
+position: absolute;
+top: 15px;
+right: 15px;
+}
+#theirs {
+width: 500px;
+height: 500px;
+}
+#received {
+display: block;
+width: 480px;
+height: 100px;
+background: white;
+padding: 10px;
+margin-top: 10px;
+color: black;
+overflow: scroll;
+}
+#scroll-videos {
+width: 30%;
+overflow: auto;
+}
+#byte_content {
+margin: 5px 0;
+max-height: 100px;
+overflow-y: auto;
+overflow-x: hidden;
+}
+#byte_range {
+margin-top: 5px;
+}
+#call-actions {
+flex: 1;
+}
+#chat-panel {
+display: none;
+}
+</style>
+</head>
+<body>
+<div id="login-page">
+<h2>Login As</h2>
+<input type="text" id="username" />
+<button id="login">Login</button>
+</div>
+
+<div id="share-page">
+<h2>File Sharing</h2>
+<div id="fileName">Nome File:</div>
+<div id="ready">Ready!</div>
+<div id="status">Progress</div>
+
+<br />
+<br />
+<input type="file" id="files" name="file" /> Read bytes:
+
+<button id="sendFile">Send</button>
+</div>
+
+<div id="call-page">
+<div id="main-video">
+<div id="videos">
+<div id="yours-container">
+<video id="yours" autoplay="true" playsinline="true" muted="muted"></video>
+<video id="theirs" autoplay="true" playsinline="true"></video>
+</div>
+<video id="others" autoplay="true" playsinline="true"></video>
+</div>
+<div id="call-actions">
+<input type="text" id="their-username" />
+<button id="call">Call</button>
+<button id="hang-up">Hang Up</button>
+</div>
+<div id="chat-panel">
+<div id="chat-input">
+<input type="text" id="message"></input>
+<button id="send">Send</button>
+</div>
+<div id="received"></div>
+</div>
+</div>
+</div>
+
+<script src="client.js"></script>
+</body>
+</html>
